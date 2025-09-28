@@ -1,0 +1,107 @@
+﻿<Page x:Class="Wpf_test.Home"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Wpf_test"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Home">
+    <Page.Resources>
+        
+    </Page.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="80*" />
+        </Grid.RowDefinitions>
+        
+        
+        <!-- BUTTONS -->
+        <StackPanel Grid.Row="0" VerticalAlignment="Center">
+            <!-- CONTROL BUTTONS -->
+            <StackPanel Name="Buttons" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Name="FileHandler" Content="Files" Click="FileHandler_Click" VerticalAlignment="Top"/>
+                <Button Name="Start" Content="Start" Click="Start_Click"/>
+                <Button Name="Delete" Content="Delete" Click="Delete_Click"/>
+            </StackPanel>
+            
+            <!-- MODES -->
+            <StackPanel Name="Modes" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Name="Classic" Content="Preset" Click="Handle_Mode" IsEnabled="False"/>
+                <Button Name="Single" Content="Single" Click="Handle_Mode"/>
+                <Button Name="Custom" Content="Custom" Click="Handle_Mode"/>
+            </StackPanel>
+        </StackPanel>
+
+        <!-- CONTENT -->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30*"/>
+                <ColumnDefinition Width="70*"/>
+            </Grid.ColumnDefinitions>
+            
+            <!-- OPTIONS -->
+            <StackPanel Name="ClassicPanel" Visibility="Visible" HorizontalAlignment="Center" Margin="0 10 0 0">
+                <TextBlock TextAlignment="Center" FontWeight="Bold" Text="Preset mode includes:" />
+                <TextBlock TextAlignment="Center" Text="Five 1 minute poses,"/>
+                <TextBlock TextAlignment="Center" Text="Five 2 minute poses, " />
+                <TextBlock TextAlignment="Center" Text="Two 5 minute poses" />
+                <TextBlock TextAlignment="Center" Text="and a 10 minute pose," />
+                <TextBlock TextAlignment="Center" Text="for a total of 13 poses." />
+            </StackPanel>
+
+            <StackPanel Name="SinglePanel" Visibility="Collapsed" HorizontalAlignment="Center" Margin="0 10 0 0" Width="200">
+                <TextBlock TextAlignment="Center" FontWeight="Bold" Text="Single mode" />
+                <TextBlock Text="Choose a single image and set a custom timer." TextWrapping="Wrap" />
+                <TextBox Name="Single_Time" Width="50" Margin="5" 
+                         ToolTip="Insert length of session with ':' separating time units. For example 'hh:mm:ss' or 'm:ss'"/>
+                <Button Name="Confirm_Time" Content="OK" Click="Confirm_Time_Click" IsDefault="True"/>
+                <TextBlock Name="Selected_TimeLabel" Text="Insert time" Width="100" TextAlignment="Center"/>
+                <TextBlock Name="Selected_Time" Text="" Width="100" TextAlignment="Center"/>
+            </StackPanel>
+
+            <StackPanel Name="CustomPanel" Visibility="Collapsed">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <StackPanel>
+                        <TextBlock Text="Time"/>
+                        <TextBox Name="Time" HorizontalAlignment="Center" Padding="5" Margin="2" Width="50" 
+                                 Background="#363636" Foreground="#ff838383"
+                                 FontFamily="Lucida Sans Typewriter"
+                                 ToolTip="Insert length of interval with ':' separating time units. For example 'hh:mm:ss' or 'mm:ss'"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock Text="Quantity" />
+                        <TextBox Name="Quantity" HorizontalAlignment="Center" Padding="5" Margin="2" Width="50" 
+                                 Background="#363636" Foreground="#ff838383"
+                                 FontFamily="Lucida Sans Typewriter"
+                                 ToolTip="How many intervals you want on the specified time."/>
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Name="Add_Button" Content="Add" Click="Add_Button_Click" Margin="2" Width="50" Padding="2" Height="25" IsDefault="True"/>
+                        <Button Name="Delete_Button" Content="Delete" Click="Delete_Button_Click" Margin="2" Width="50" Padding="2" Height="25"/>
+                    </StackPanel>
+                </StackPanel>
+                <ListView Name="Intervals" HorizontalAlignment="Center" Width="100" Padding="0 0 0 0" SelectionMode="Single" Visibility="Collapsed" 
+                          HorizontalContentAlignment="Center" Background="#242424"/>
+
+            </StackPanel>
+            
+            <!-- THUMBNAILS -->
+            <StackPanel Grid.Column="1">
+                <StackPanel Margin="0 0 0 5">  
+                <TextBlock Name="ImageAmountText" Text="{Binding ImageInfo}" />
+                <TextBlock Name="TimesAmountText" Text="{Binding TimeInfo}"/>
+                </StackPanel>
+                <ScrollViewer  VerticalScrollBarVisibility="Auto" Panel.ZIndex="1">
+                    <WrapPanel Name="Thumbnail_Gallery"
+                           Orientation="Horizontal"
+                           VerticalAlignment="Top"
+                           HorizontalAlignment="Center"
+                           Width="500"/>
+                </ScrollViewer>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>

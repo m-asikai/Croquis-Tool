@@ -1,0 +1,26 @@
+## Build Folders ##
+bin/
+obj/
+[Bb]uild/
+[Ll]og/
+
+## Visual Studio ##
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Rider ##
+.idea/
+
+## Windows-specific ##
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+## Other ##
+*.db
+*.log
+*.pdb
+*.cache

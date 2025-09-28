@@ -1,0 +1,41 @@
+﻿<Window x:Class="Wpf_test.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wpf_test"
+        mc:Ignorable="d"
+        Title="MainWindow" 
+        MouseLeftButtonDown="Window_MouseLeftButtonDown"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        MouseEnter="Window_MouseEnter" 
+        MouseLeave="Window_MouseLeave" 
+        Height="450" Width="800">
+    <Window.Resources>
+    </Window.Resources>
+    <WindowChrome.WindowChrome>
+        <WindowChrome GlassFrameThickness="0" CornerRadius="0" CaptionHeight="0"/>
+    </WindowChrome.WindowChrome>
+    <Grid Background="#242424">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="2" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        
+        <TextBlock Name="AppTitle" Text="Croquis Tool" HorizontalAlignment="Left" FontSize="16" Margin="10 5 0 0" VerticalAlignment="Center"/>
+        <StackPanel Name="MainControls" HorizontalAlignment="Right" Margin="0 5 10 2" Visibility="Visible" Orientation="Horizontal">
+            <Button Name="MinimizeButton" Content="🗕" Click="MinimizeButton_Click" Width="30"/>
+            <Button Name="CloseButton" Content="✕" Click="CloseButton_Click" Width="30"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Name="ViewerControls" HorizontalAlignment="Right" Visibility="Collapsed" Margin="0 5 10 2">
+            <Button Name="ViewerMinimizeButton" Content="🗕" Click="MinimizeButton_Click" Width="30"/>
+            <Button Name="ViewerFullscreenButton" Content="🗖" Click="FullscreenButton_Click" Width="30"/>
+            <Button Name="ViewerCloseButton" Content="X" Click="CloseButton_Click" Width="30"/>
+        </StackPanel>
+        <Rectangle Name="Line" Fill="Gray" Grid.Row="1" />
+        <Frame Grid.Row="2" Name="Main" NavigationUIVisibility="Hidden" Source="Home.xaml"/>
+    </Grid>
+</Window>

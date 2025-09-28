@@ -1,0 +1,57 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <RootNamespace>Wpf_test</RootNamespace>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>False</UseWindowsForms>
+    <PackageIcon></PackageIcon>
+    <ApplicationIcon>icon2.ico</ApplicationIcon>
+    <AssemblyName>CroquisTool</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Components\**" />
+    <EmbeddedResource Remove="Components\**" />
+    <None Remove="Components\**" />
+    <Page Remove="Components\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Icons\backward.png" />
+    <None Remove="Icons\forward.png" />
+    <None Remove="Icons\pause.png" />
+    <None Remove="Icons\play.png" />
+    <None Remove="Icons\stop.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Remove="src\Views\App.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="icon2.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Icons\backward.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\forward.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\pause.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\play.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icons\stop.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+</Project>

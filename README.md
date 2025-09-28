@@ -1,6 +1,6 @@
 ## CroquisTool
 
-A simple tool for [croquis drawing](https://en.wikipedia.org/wiki/Croquis) made with Windows Presentation Foundation framework.
+A simple tool for [croquis](https://en.wikipedia.org/wiki/Croquis) drawing made with Windows Presentation Foundation framework.
 
 There are three modes available in the tool:
 
@@ -8,7 +8,7 @@ There are three modes available in the tool:
 - Single mode, where the user select a single image and sets a time for the timer.
 - Custom mode, where the user can select as many time intervals as they please and set a custom time for each one.
 
-Image taken from the front page where the user can select the mode and select images to draw from their device.
+Image taken from the main page where the user can select the mode and select images to draw from their device.
 
 ![Viev of start page with image thumbnails.](/images/home.png)
 
